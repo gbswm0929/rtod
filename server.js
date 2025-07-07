@@ -14,6 +14,7 @@ const dbName = 'test';
 const collectionName = 'test';
 
 app.get('/', async (req, res) => {
+  console.log("/접속")
   try {
     await client.connect();
     const db = client.db(dbName);
