@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 // MongoDB Atlas URI 설정
-const uri = process.env.MONGO_URI || "mongodb+srv://user:user@cluster.dbvs7fb.mongodb.net/?retryWrites=true&w=majority&appName=cluster"; // 환경변수 또는 직접 입력
+const uri = process.env.uri; // 환경변수 또는 직접 입력
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // 컬렉션 이름 설정
