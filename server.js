@@ -21,7 +21,8 @@ app.get('/', async (req, res) => {
     const collection = db.collection(collectionName);
 
     const data = await collection.find({}).toArray();
-    res.json(data);
+    // res.json(data);
+    res.json("hello");
   } catch (error) {
     console.error('Error fetching data:', error);
     res.status(500).json({ message: 'Internal server error' });
