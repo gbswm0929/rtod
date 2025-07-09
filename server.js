@@ -48,6 +48,7 @@ app.get('/', async (req, res) => {
         }
         const n = JSON.parse(datas);
         n[userid] = data;
+        data["userid"] = userid;
         const updatedJson = JSON.stringify(n, null, 2);
 
         fs.writeFile(filePath, updatedJson, 'utf8', (err) => {
