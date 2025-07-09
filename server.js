@@ -14,15 +14,27 @@ const dbName = 'test';
 const collectionName = 'test';
 
 app.get('/', async (req, res) => {
-  console.log(req.query.name, req.query.id)
   try {
-    await client.connect();
-    const db = client.db(dbName);
-    const collection = db.collection(collectionName);
+    // await client.connect();
+    // const db = client.db(dbName);
+    // const collection = db.collection(collectionName);
 
-    const data = await collection.find({}).toArray();
+    // const data = await collection.find({}).toArray();
     // res.json(data);
-    res.json("hello");
+    const characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    let result = '';
+    for (let i = 0; i < 10; i++) {
+      const randomindex = Math.floor(Math.random() * characters.length)
+      result += characters[randomindex]
+    }
+    const username = req.query.name
+    const userid = req.query.id
+    data = {
+      "username" : username,
+      "userid" : userid,
+      "oauth" : result
+    }
+    res.json(data)
   } catch (error) {
     console.error('Error fetching data:', error);
     res.status(500).json({ message: 'Internal server error' });
