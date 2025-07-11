@@ -24,8 +24,8 @@ app.get('/signup', async (req, res) => {
 
 app.get('/signin', async (req, res) => {
     const oauthnum = req.query.oauthnum
-    if (json[oauthnum]) {
-        res.send(json[oauthnum])
+    if (file[oauthnum]) {
+        res.send(file[oauthnum])
     }
     else {
         res.send("잘못된 값")
