@@ -25,12 +25,12 @@ app.get('/signup', async (req, res) => {
     const oauthnum = oauth()
     file[oauthnum] = {userid, username}
     res.send({"oauth": oauthnum, "userid": userid, "username": username})
+    del(oauthnum)
 });
 
 app.get('/signin', async (req, res) => {
     const oauthnum = req.query.oauthnum
     if (file[oauthnum]) {
-        del(oauthnum)
         res.send(file[oauthnum])
     }
     else {
