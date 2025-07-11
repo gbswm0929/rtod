@@ -19,7 +19,7 @@ app.get('/signup', async (req, res) => {
     const userid = req.query.userid
     const oauthnum = oauth()
     file[oauthnum] = {userid, username}
-    res.send(file)
+    res.send({"oauth": oauthnum, "userid": userid, "username": username})
 });
 
 app.get('/signin', async (req, res) => {
