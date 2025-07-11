@@ -72,6 +72,14 @@ app.get('/', async (req, res) => {
     // await client.close(); // 연결 닫기 (연결 유지하고 싶다면 이 줄은 제거 가능)
   }
 });
+app.get("/a", async (req, res) => {
+  try {
+  }
+  catch (Err) {
+    console.log("에러", Err)
+    res.json("Error")
+  }
+})
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
