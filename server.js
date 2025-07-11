@@ -33,7 +33,7 @@ app.get('/signin', async (req, res) => {
 });
 
 app.get('/', async (req, res) => {
-  res.send("home")
+  res.send(file)
 });
 
 app.listen(port, () => {
