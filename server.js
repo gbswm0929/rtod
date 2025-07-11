@@ -13,6 +13,11 @@ function oauth() {
     }
     return result
 }
+function del(oauthnum) {
+  setTimeout(() => {
+    delete file[oauthnum]
+  }, 10 * 60 * 1000)
+}
 
 app.get('/signup', async (req, res) => {
     const username = req.query.username
@@ -25,6 +30,7 @@ app.get('/signup', async (req, res) => {
 app.get('/signin', async (req, res) => {
     const oauthnum = req.query.oauthnum
     if (file[oauthnum]) {
+        del(oauthnum)
         res.send(file[oauthnum])
     }
     else {
