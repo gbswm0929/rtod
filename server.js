@@ -2,7 +2,7 @@ const express = require('express');
 const file = require("./data.json");
 
 const app = express();
-const port = 5500;
+const port = 8080;
 
 function oauth() {
   const characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -15,7 +15,7 @@ function oauth() {
 }
 
 app.get('/signup', async (req, res) => {
-  res.send("signup")
+  res.json("signup")
     // const username = req.query.username
     // const userid = req.query.userid
     // const oauthnum = oauth()
@@ -24,7 +24,7 @@ app.get('/signup', async (req, res) => {
 });
 
 app.get('/signin', async (req, res) => {
-  res.send("signin")
+  res.json("signin")
     // const oauthnum = req.query.oauthnum
     // if (file[oauthnum]) {
     //     res.send(file[oauthnum])
