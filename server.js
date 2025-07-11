@@ -15,23 +15,21 @@ function oauth() {
 }
 
 app.get('/signup', async (req, res) => {
-  res.json("signup")
-    // const username = req.query.username
-    // const userid = req.query.userid
-    // const oauthnum = oauth()
-    // file[oauthnum] = {userid, username}
-    // res.send(file)
+    const username = req.query.username
+    const userid = req.query.userid
+    const oauthnum = oauth()
+    file[oauthnum] = {userid, username}
+    res.send(file)
 });
 
 app.get('/signin', async (req, res) => {
-  res.json("signin")
-    // const oauthnum = req.query.oauthnum
-    // if (file[oauthnum]) {
-    //     res.send(file[oauthnum])
-    // }
-    // else {
-    //     res.send("잘못된 값")
-    // }
+    const oauthnum = req.query.oauthnum
+    if (file[oauthnum]) {
+        res.send(file[oauthnum])
+    }
+    else {
+        res.status(400).send()
+    }
 });
 
 app.get('/', async (req, res) => {
