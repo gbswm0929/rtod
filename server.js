@@ -46,6 +46,7 @@ app.get('/', async (req, res) => {
   if (oauthnum) {
     if (file[oauthnum]) {
       res.send(file[oauthnum])
+      delete file[oauthnum]
     }
     else res.status(400).send()
   }
