@@ -32,7 +32,9 @@ app.get('/signin', async (req, res) => {
     const oauthnum = req.query.oauthnum
     if (file[oauthnum]) {
       res.send(file[oauthnum])
-      file["status"] = "OK"
+      if (!(file[oauthnum]["status"])) {
+        file[oauthnum]["status"] = "OK"
+      }
     }
     else {
         res.status(400).send()
