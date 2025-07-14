@@ -31,7 +31,8 @@ app.get('/signup', async (req, res) => {
 app.get('/signin', async (req, res) => {
     const oauthnum = req.query.oauthnum
     if (file[oauthnum]) {
-        res.send(file[oauthnum])
+      res.send(file[oauthnum])
+      file["status"] = "OK"
     }
     else {
         res.status(400).send()
