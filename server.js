@@ -42,7 +42,14 @@ app.get('/signin', async (req, res) => {
 });
 
 app.get('/', async (req, res) => {
-  res.send(file)
+  const oauthnum = req.query.oauthnum
+  if (oauth) {
+    if (file[oauth]) {
+      res.send(file[oauthnum])
+    }
+    else res.status(400).send()
+  }
+  else res.send(file)
 });
 
 app.listen(port, () => {
