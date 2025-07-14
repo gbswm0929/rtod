@@ -43,8 +43,8 @@ app.get('/signin', async (req, res) => {
 
 app.get('/', async (req, res) => {
   const oauthnum = req.query.oauthnum
-  if (oauth) {
-    if (file[oauth]) {
+  if (oauthnum) {
+    if (file[oauthnum]) {
       res.send(file[oauthnum])
     }
     else res.status(400).send()
